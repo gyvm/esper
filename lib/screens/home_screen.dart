@@ -10,13 +10,19 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
+            Text('esper'),
             Expanded(
               child: PageView(
-                // controller: controller,
                 scrollDirection: Axis.horizontal,
                 children: [
-                  PageOne(),
-                  PageTwo(),
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: PageOne(),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: PageTwo(),
+                  ),
                 ],
               ),
             ),
