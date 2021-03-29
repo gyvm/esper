@@ -13,11 +13,11 @@ class EditDialogState extends State<EditDialog> {
   Widget build(BuildContext context) {
     MaterialLocalizations localizations = MaterialLocalizations.of(context);
     final List<Widget> actions = [
-      FlatButton(
+      TextButton(
         child: Text(localizations.cancelButtonLabel),
         onPressed: () => Navigator.pop(context),
       ),
-      FlatButton(
+      TextButton(
         child: Text(localizations.okButtonLabel),
         onPressed: () {
           // TODO バリデーション
