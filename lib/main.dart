@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         scaffoldBackgroundColor: HexColor('AED1F4'),
+        fontFamily: 'Roboto Mono',
       ),
       home: AuthScreen(),
       routes: <String, WidgetBuilder>{
