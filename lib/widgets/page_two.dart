@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import './contacts_card.dart';
 import './edit_dialog.dart';
@@ -22,6 +23,10 @@ class PageTwo extends StatelessWidget {
     );
   }
 
+  Future<void> _signOut() async {
+    FirebaseAuth.instance.signOut();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -36,6 +41,12 @@ class PageTwo extends StatelessWidget {
                     _settings(context),
                     _accountSetting(context),
                     _goAuth(context),
+                    TextButton(
+                      onPressed: _signOut,
+                      child: Text(
+                        "サインアウト",
+                      ),
+                    ),
                   ],
                 );
               },
