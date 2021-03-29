@@ -23,8 +23,8 @@ class Events extends StatelessWidget {
             padding: EdgeInsets.all(10),
             constraints: BoxConstraints(minHeight: 100.0),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(25),
-              color: HexColor('D9D9D9'),
+              borderRadius: BorderRadius.circular(13),
+              color: HexColor('9FB8D3'),
             ),
             child: ListView.builder(
               shrinkWrap: true,
