@@ -14,7 +14,7 @@ class AuthCheck extends StatelessWidget {
           print('Hello');
           return HomeScreen();
         } else {
-          print('Hello2');
+          print('Who are you?');
           return AuthScreen();
           // return HomeScreen();
         }
