@@ -25,7 +25,7 @@ class ContactsCard extends StatelessWidget {
                   return Column(
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(left: 10),
+                        padding: EdgeInsets.only(right: 10),
                         child: SizedBox(
                           height: 80,
                           width: 80,
