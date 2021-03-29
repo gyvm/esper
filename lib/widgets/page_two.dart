@@ -1,12 +1,27 @@
 import 'package:flutter/material.dart';
 
 import './contacts_card.dart';
-
+import './edit_dialog.dart';
 import '../common/h1text.dart';
 import '../common/h2text.dart';
 import '../common/default_button.dart';
 
 class PageTwo extends StatelessWidget {
+  Future<Duration> showTimerDialog({
+    @required BuildContext context,
+    TransitionBuilder builder,
+    bool useRootNavigator = true,
+  }) {
+    final Widget dialog = EditDialog();
+    return showDialog(
+      context: context,
+      useRootNavigator: useRootNavigator,
+      builder: (BuildContext context) {
+        return builder == null ? dialog : builder(context, dialog);
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -18,8 +33,8 @@ class PageTwo extends StatelessWidget {
               (BuildContext context, int index) {
                 return Column(
                   children: [
-                    _settings(),
-                    _accountSetting(),
+                    _settings(context),
+                    _accountSetting(context),
                     _goAuth(context),
                   ],
                 );
@@ -32,7 +47,7 @@ class PageTwo extends StatelessWidget {
     );
   }
 
-  Widget _settings() {
+  Widget _settings(BuildContext context) {
     return Container(
       child: Column(
         children: [
@@ -40,40 +55,47 @@ class PageTwo extends StatelessWidget {
           H2Text(text: "notification contacts"),
           ContactsCard(),
           H2Text(text: "check interval"),
-          DefaultButton(icon: Icons.arrow_forward_ios
-              //   mapKey: "check_interval",
-              //   press: () {
-              //     Navigator.of(context).pushNamed(
-              //       '/setting_selection_screen',
-              //       arguments: userDataModel.checkInterval,
-              //     );
-              //   },
-              ),
+          DefaultButton(
+            icon: Icons.arrow_forward_ios,
+            press: () {
+              Navigator.of(context).pushNamed(
+                '/selection_screen',
+                arguments: null,
+              );
+            },
+            //   mapKey: "check_interval",
+          ),
           H2Text(text: "retry count"),
-          DefaultButton(icon: Icons.arrow_forward_ios
-              // mapKey: "Buttons",
-              // press: null,
-              ),
+          DefaultButton(
+            icon: Icons.arrow_forward_ios,
+            press: () {},
+            // mapKey: "Buttons",
+          ),
         ],
       ),
     );
   }
 
-  Widget _accountSetting() {
+  Widget _accountSetting(BuildContext context) {
     return Container(
       child: Column(
         children: [
           H1Text(text: "Account"),
           H2Text(text: "name"),
-          DefaultButton(icon: Icons.edit
-              // mapKey: "Buttons",
-              // press: null,
-              ),
+          DefaultButton(
+            icon: Icons.edit,
+            press: () {},
+            // mapKey: "Buttons",
+          ),
           H2Text(text: "email"),
-          DefaultButton(icon: Icons.edit
-              // mapKey: "Buttons",
-              // press: null,
-              ),
+          DefaultButton(
+            icon: Icons.edit,
+            press: () async {
+              Duration date = await showTimerDialog(context: context);
+              // timerBloc.setting.add(date);
+            },
+            // mapKey: "Buttons",
+          ),
         ],
       ),
     );
