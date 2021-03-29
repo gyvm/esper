@@ -1,20 +1,17 @@
-import 'package:esper_prod/common/hexcolor.dart';
 import 'package:flutter/material.dart';
 
 import '../common/hexcolor.dart';
 // import 'package:provider/provider.dart';
 
-class DefaultButton extends StatelessWidget {
-  const DefaultButton({
+class SelectionButton extends StatelessWidget {
+  const SelectionButton({
     Key key,
-    @required this.icon,
-    @required this.press,
     // @required this.mapKey,
+    // @required this.press,
   }) : super(key: key);
 
-  final IconData icon;
-  final Function press;
   // final String mapKey;
+  // final Function press;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +34,7 @@ class DefaultButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(13),
             ),
           ),
-          onPressed: press,
+          onPressed: () {},
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -47,9 +44,6 @@ class DefaultButton extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 30,
                 ),
-              ),
-              Icon(
-                icon,
               ),
             ],
           ),

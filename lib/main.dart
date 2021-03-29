@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import './screens/auth_screen.dart';
 import './screens/home_screen.dart';
+import './screens/selection_screen.dart';
 
 import './common/hexcolor.dart';
 
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         '/home_screen': (BuildContext context) => HomeScreen(),
         '/auth_screen': (BuildContext context) => AuthScreen(),
+        '/selection_screen': (BuildContext context) => SelectionScreen(),
       },
     );
   }
