@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import '../screens/home_screen.dart';
-// import '../screens/auth_screen.dart';
+import '../screens/auth_screen.dart';
 
 class AuthCheck extends StatelessWidget {
   @override
@@ -11,10 +11,12 @@ class AuthCheck extends StatelessWidget {
       stream: FirebaseAuth.instance.authStateChanges(),
       builder: (ctx, userSnapshot) {
         if (userSnapshot.hasData) {
+          print('Hello');
           return HomeScreen();
         } else {
-          // return AuthScreen();
-          return HomeScreen();
+          print('Hello2');
+          return AuthScreen();
+          // return HomeScreen();
         }
       },
     );
