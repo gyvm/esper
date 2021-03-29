@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>573701308254-2fs91687gbb4r3sgbos80ijdt3vsrbnj.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.573701308254-2fs91687gbb4r3sgbos80ijdt3vsrbnj</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDisbR7nY0fFewUEPM3BnNwY3v8hM9mB7M</string>
+	<key>GCM_SENDER_ID</key>
+	<string>573701308254</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.esperDev003</string>
+	<key>PROJECT_ID</key>
+	<string>esper-dev</string>
+	<key>STORAGE_BUCKET</key>
+	<string>esper-dev.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:573701308254:ios:7b28b00313ae963fd959cf</string>
+	<key>DATABASE_URL</key>
+	<string>https://esper-dev-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>
