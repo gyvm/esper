@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './screens/auth_screen.dart';
+import './screens/home_screen.dart';
 
 import './common/hexcolor.dart';
 
@@ -19,6 +20,10 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: HexColor('AED1F4'),
       ),
       home: AuthScreen(),
+      routes: <String, WidgetBuilder>{
+        '/home_screen': (BuildContext context) => HomeScreen(),
+        '/auth_screen': (BuildContext context) => AuthScreen(),
+      },
     );
   }
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/email_sign_up_form.dart';
-
 import '../common/hexcolor.dart';
 
 class AuthScreen extends StatelessWidget {
@@ -16,7 +15,12 @@ class AuthScreen extends StatelessWidget {
             ),
             Container(
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushNamed(
+                    '/home_screen',
+                    arguments: null,
+                  );
+                },
                 child: Text(
                   'Sign in',
                   style: TextStyle(
