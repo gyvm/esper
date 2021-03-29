@@ -7,10 +7,12 @@ import '../common/hexcolor.dart';
 class DefaultButton extends StatelessWidget {
   const DefaultButton({
     Key key,
+    @required this.icon,
     // @required this.mapKey,
     // @required this.press,
   }) : super(key: key);
 
+  final IconData icon;
   // final String mapKey;
   // final Function press;
 
@@ -47,7 +49,7 @@ class DefaultButton extends StatelessWidget {
                 ),
               ),
               Icon(
-                Icons.arrow_forward_ios,
+                icon,
               ),
             ],
           ),

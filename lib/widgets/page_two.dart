@@ -40,7 +40,7 @@ class PageTwo extends StatelessWidget {
           H2Text(text: "notification contacts"),
           ContactsCard(),
           H2Text(text: "check interval"),
-          DefaultButton(
+          DefaultButton(icon: Icons.arrow_forward_ios
               //   mapKey: "check_interval",
               //   press: () {
               //     Navigator.of(context).pushNamed(
@@ -50,7 +50,7 @@ class PageTwo extends StatelessWidget {
               //   },
               ),
           H2Text(text: "retry count"),
-          DefaultButton(
+          DefaultButton(icon: Icons.arrow_forward_ios
               // mapKey: "Buttons",
               // press: null,
               ),
@@ -65,17 +65,12 @@ class PageTwo extends StatelessWidget {
         children: [
           H1Text(text: "Account"),
           H2Text(text: "name"),
-          DefaultButton(
+          DefaultButton(icon: Icons.edit
               // mapKey: "Buttons",
               // press: null,
               ),
           H2Text(text: "email"),
-          DefaultButton(
-              // mapKey: "Buttons",
-              // press: null,
-              ),
-          H2Text(text: "phone_number"),
-          DefaultButton(
+          DefaultButton(icon: Icons.edit
               // mapKey: "Buttons",
               // press: null,
               ),
@@ -86,19 +81,37 @@ class PageTwo extends StatelessWidget {
 
   Widget _goAuth(BuildContext context) {
     return Container(
-      child: TextButton(
-        onPressed: () {
-          Navigator.of(context).pushNamed(
-            '/auth_screen',
-            arguments: null,
-          );
-        },
-        child: Text(
-          'Go Auth Screen',
-          style: TextStyle(
-            fontSize: 20,
+      child: Column(
+        children: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed(
+                '/auth_screen',
+                arguments: null,
+              );
+            },
+            child: Text(
+              'Go Auth Screen',
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            ),
           ),
-        ),
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed(
+                '/selection_screen',
+                arguments: null,
+              );
+            },
+            child: Text(
+              'Go Selection Screen',
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
