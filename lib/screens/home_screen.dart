@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../widgets/page_one.dart';
 import '../widgets/page_two.dart';
+import '../common/logo_text.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -10,7 +11,7 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            Text('esper'),
+            LogoText(),
             Expanded(
               child: PageView(
                 scrollDirection: Axis.horizontal,
