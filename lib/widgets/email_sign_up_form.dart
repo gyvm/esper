@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-// import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/services.dart';
@@ -48,23 +48,9 @@ class _EmailSignUpFormState extends State<EmailSignUpForm> {
         UserCredential authResult = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(
                 email: _email, password: _password1);
-        // // 現在時刻(UTC)を取得
-        // final lastCheck = DateTime.now().toUtc();
-        // final nextCheckDate = lastCheck.add(Duration(days: 7));
-        // // 登録に成功したユーザ情情報も取得可能 -> Firestoreに登録
-        // FirebaseFirestore.instance
-        //     .collection("users")
-        //     // docの引数にユーザIDを設定
-        //     .doc(authResult.user.uid)
-        //     .set({
-        //   "email": authResult.user.email,
-        //   "status": "email unauthenticated",
-        //   "last_check": Timestamp.fromDate(lastCheck),
-        //   "next_check": Timestamp.fromDate(nextCheckDate),
-        // });
 
-        // // 登録に成功したユーザ情情報も取得可能
-        // print("user1:" + authResult.user.uid);
+        _initializeData(authResult);
+
         // 有効なメールアドレスか確認するためのメールを送信する;
         authResult.user.sendEmailVerification();
         alert.showFlash(context, "メールアドレス確認用のメールを送信しました。", Colors.blue);
@@ -84,6 +70,32 @@ class _EmailSignUpFormState extends State<EmailSignUpForm> {
         });
       }
     }
+  }
+
+  void _initializeData(UserCredential authResult) {
+    // 現在時刻(UTC)を取得
+    final lastCheck = DateTime.now().toUtc();
+    final nextCheckDate = lastCheck.add(Duration(days: 7));
+    // 登録に成功したユーザ情情報も取得可能 -> Firestoreに登録
+    CollectionReference users = FirebaseFirestore.instance.collection("users");
+
+    // docの引数にユーザIDを設定
+    users.doc(authResult.user.uid).set({
+      "email": authResult.user.email,
+      "status": "email unauthenticated",
+      "last_check": Timestamp.fromDate(lastCheck),
+      "next_check": Timestamp.fromDate(nextCheckDate),
+    });
+
+    // docの引数にユーザIDを設定
+    users
+        .doc(authResult.user.uid)
+        .collection("history")
+        .doc(lastCheck.toString())
+        .set({
+      "date": Timestamp.fromDate(lastCheck),
+      "check_status": 'OK',
+    });
   }
 
   @override
