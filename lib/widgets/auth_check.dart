@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-import '../screens/home_screen.dart';
 import '../screens/auth_screen.dart';
+import './change_notifier_provider.dart';
 
 class AuthCheck extends StatelessWidget {
   @override
@@ -12,11 +12,10 @@ class AuthCheck extends StatelessWidget {
       builder: (ctx, userSnapshot) {
         if (userSnapshot.hasData) {
           print('Hello');
-          return HomeScreen();
+          return UserDataChangeNotifierProvider();
         } else {
           print('Who are you?');
           return AuthScreen();
-          // return HomeScreen();
         }
       },
     );
