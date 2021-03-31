@@ -1,3 +1,4 @@
+import 'package:esper_prod/screens/selection_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -69,18 +70,27 @@ class PageTwo extends StatelessWidget {
           DefaultButton(
             icon: Icons.arrow_forward_ios,
             press: () {
-              Navigator.of(context).pushNamed(
-                '/selection_screen',
-                arguments: null,
-              );
+              List<String> args = [
+                'check_interval',
+              ];
+              print('1');
+              Navigator.of(context)
+                  .pushNamed('/selection_screen', arguments: args);
             },
-            //   mapKey: "check_interval",
+            mapKey: "check_interval",
           ),
           H2Text(text: "retry count"),
           DefaultButton(
             icon: Icons.arrow_forward_ios,
-            press: () {},
-            // mapKey: "Buttons",
+            press: () {
+              List<String> args = [
+                'retry_count',
+              ];
+              print('1');
+              Navigator.of(context)
+                  .pushNamed('/selection_screen', arguments: args);
+            },
+            mapKey: "retry_count",
           ),
         ],
       ),
@@ -95,17 +105,18 @@ class PageTwo extends StatelessWidget {
           H2Text(text: "name"),
           DefaultButton(
             icon: Icons.edit,
-            press: () {},
-            // mapKey: "Buttons",
+            press: () async {
+              await showTimerDialog(context: context);
+            },
+            mapKey: "name",
           ),
           H2Text(text: "email"),
           DefaultButton(
             icon: Icons.edit,
             press: () async {
-              Duration date = await showTimerDialog(context: context);
-              // timerBloc.setting.add(date);
+              await showTimerDialog(context: context);
             },
-            // mapKey: "Buttons",
+            mapKey: "email",
           ),
         ],
       ),
