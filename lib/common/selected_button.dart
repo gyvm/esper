@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 // import '../models/user_data.dart';
 import '../common/hexcolor.dart';
 
-class SelectionButton extends StatelessWidget {
-  SelectionButton({
+class SelectedButton extends StatelessWidget {
+  SelectedButton({
     Key key,
     @required this.text,
     @required this.press,
@@ -28,7 +28,7 @@ class SelectionButton extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(4, 4, 4, 12),
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-            primary: HexColor('9FB8D3'),
+            primary: HexColor('ECF684'),
             onPrimary: Colors.black,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(13),
@@ -45,6 +45,7 @@ class SelectionButton extends StatelessWidget {
                   fontSize: 30,
                 ),
               ),
+              Icon(Icons.check),
             ],
           ),
         ),
