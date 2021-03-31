@@ -83,6 +83,8 @@ class _EmailSignUpFormState extends State<EmailSignUpForm> {
     users.doc(authResult.user.uid).set({
       "email": authResult.user.email,
       "status": "email unauthenticated",
+      "check_interval": 14,
+      "retry_count": 3,
       "last_check": Timestamp.fromDate(lastCheck),
       "next_check": Timestamp.fromDate(nextCheckDate),
     });
